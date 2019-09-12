@@ -1,0 +1,40 @@
+{% extends 'control_base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">{{ newsletter.subject }}</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a href="{% url 'control_panel:control_newsletter' %}" class="btn btn-sm btn-outline-primary">New</a>
+            <a href="{% url 'control_panel:control_newsletter_edit' newsletter.pk %}" class="btn btn-sm btn-outline-success">Edit</a>
+        </div>
+        <a href="{% url 'control_panel:control_newsletter_delete' newsletter.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+    </div>
+</div>
+<div class="row mb-5">
+    <div class="col-sm-12">
+        {% if messages %}
+        <div class='messages'>
+            <ul class="messages">
+                {% for message in messages %}
+                <div {% if message.tags %} class="{{ message.tags }}" {% endif %} role="alert">
+                    {% if "html_safe" in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-sm-12">
+        <small>{{ newsletter.created }} ago</small>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        {{ newsletter.body|linebreaks }}
+    </div>
+</div>
+{% endblock %}
