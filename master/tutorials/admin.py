@@ -13,14 +13,14 @@ class LanguageAdminModel(admin.ModelAdmin):
 admin.site.register(Language, LanguageAdminModel)
 
 
-# class StudentExperienceAdminModel(admin.ModelAdmin):
-# 	list_display = ['experience_level']
-# 	list_filter = ['experience_level']
-# 	search_fields = ['experience_level']
+class StudentExperienceAdminModel(admin.ModelAdmin):
+	list_display = ['experience_level']
+	list_filter = ['experience_level']
+	search_fields = ['experience_level']
 
-# 	class Meta:
-# 		model = StudentExperience
-# admin.site.register(StudentExperience, StudentExperienceAdminModel)
+	class Meta:
+		model = StudentExperience
+admin.site.register(StudentExperience, StudentExperienceAdminModel)
 
 
 class TutorialSeriesAdminModel(admin.ModelAdmin):

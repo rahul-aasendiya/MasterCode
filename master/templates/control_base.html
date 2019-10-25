@@ -12,8 +12,6 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
     <style>
         .bd-placeholder-img {
         font-size: 1.125rem;
@@ -36,7 +34,7 @@
 
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url 'control_panel:dashboard' %}">Company name</a>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
@@ -50,14 +48,12 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <span data-feather="home"></span>
-                                Dashboard <span class="sr-only">(current)</span>
+                            <a class="nav-link active" href="{% url 'control_panel:dashboard' %}">
+                                Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'control_panel:control_newsletter_list' %}">
-                                <span data-feather="file"></span>
+                            <a class="nav-link" href="{% url 'control_panel:newsletter_list' %}">
                                 NewsLetters
                             </a>
                         </li>
@@ -132,7 +128,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="{% static 'website/js/dashboard.js' %"></script>
-
 </body>
 
 </html>

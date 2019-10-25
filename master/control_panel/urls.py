@@ -1,18 +1,13 @@
 from django.urls import path
-from newsletters.views import (
-	control_newsletter,
-	control_newsletter_list,
-	control_newsletter_detail,
-	control_newsletter_edit,
-	control_newsletter_delete
-	)
+from . import views
 
 app_name = 'control_panel'
 
 urlpatterns = [	
-	path('', control_newsletter_list, name='control_newsletter_list'),
-	path('newsletters/', control_newsletter, name='control_newsletter'),	
-	path('newsletters/detail/<int:pk>/', control_newsletter_detail, name='control_newsletter_detail'),	
-	path('newsletters/edit/<int:pk>/', control_newsletter_edit, name='control_newsletter_edit'),	
-	path('newsletters/delete/<int:pk>/', control_newsletter_delete, name='control_newsletter_delete'),	
+	path('', views.dashboard, name='dashboard'),
+	path('newsletters/', views.newsletter_list, name='newsletter_list'),
+	path('newsletter/create/', views.create_newsletter, name='create_newsletter'),	
+	path('newsletter/detail/<int:pk>/', views.newsletter_detail, name='newsletter_detail'),	
+	path('newsletter/edit/<int:pk>/', views.newsletter_edit, name='newsletter_edit'),	
+	path('newsletter/delete/<int:pk>/', views.newsletter_delete, name='newsletter_delete'),	
 ]

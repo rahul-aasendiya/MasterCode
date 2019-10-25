@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">All Newsletter</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <a href="{% url 'control_panel:control_newsletter' %}"><button class="btn btn-primary">New</button></a>
+        <a href="{% url 'control_panel:create_newsletter' %}"><button class="btn btn-primary">New</button></a>
     </div>
 </div>
 {% if messages %}
@@ -34,12 +34,12 @@
         <tbody>
             {% for item in items %}
             <tr>
-                <td><a href="{% url 'control_panel:control_newsletter_detail' item.id %}">{{ item.subject|truncatechars:50 }}</a></td>
+                <td><a href="{% url 'control_panel:newsletter_detail' item.id %}">{{ item.subject|truncatechars:50 }}</a></td>
                 <td>{{ item.status }}</td>
                 <td>{{ item.created|date:"D M Y" }}</td>
                 <td>{{ item.updated|date:"D M Y" }}</td>
-                <td><a href="{% url 'control_panel:control_newsletter_edit' item.pk %}" class="btn btn-sm btn-success">Edit</a></td>
-                <td><a href="{% url 'control_panel:control_newsletter_delete' item.pk %}" class="btn btn-sm btn-danger">Delete</a></td>
+                <td><a href="{% url 'control_panel:newsletter_edit' item.pk %}" class="btn btn-sm btn-success">Edit</a></td>
+                <td><a href="{% url 'control_panel:newsletter_delete' item.pk %}" class="btn btn-sm btn-danger">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
